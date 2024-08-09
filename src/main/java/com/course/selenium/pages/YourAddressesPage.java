@@ -35,7 +35,7 @@ public class YourAddressesPage {
         String myAddressTitleXpath = String.format("//div[@class='address-body']/h4[contains(text(), '%s')]", alias);
         //Address element with entered title
         WebElement addressElement = driver.findElement(By.xpath(myAddressTitleXpath));
-
+        //Print Error if there is no address found
         Assert.assertEquals("There is no address with this title!", addressElement.getText(), alias);
     }
 

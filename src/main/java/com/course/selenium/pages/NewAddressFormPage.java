@@ -27,6 +27,8 @@ public class NewAddressFormPage {
     WebElement zipCodeField;
     @FindBy(id = "field-id_country")
     WebElement countryDropDownButton;
+    @FindBy(id = "field-phone")
+    WebElement phoneField;
     @FindBy(css = ".form-control-submit")
     WebElement saveButton;
 
@@ -40,7 +42,7 @@ public class NewAddressFormPage {
     }
 
     public void fillNewAddressForm(String alias, String first_name, String last_name, String address,  String zip_code,
-                                   String city, String country)
+                                   String city, String country, String phone)
     {
         //Use country name with xpath locator and save to string variable
         String xpathCountryFormatedName = String.format("//select[@id='field-id_country']/option[contains(text(), '%s')]", country);
@@ -69,6 +71,8 @@ public class NewAddressFormPage {
         zipCodeField.sendKeys(zip_code);
         cityField.clear();
         cityField.sendKeys(city);
+        phoneField.clear();
+        phoneField.sendKeys(phone);
         countryDropDownButton.click();
         countryDroppedDownElement.click();
     }

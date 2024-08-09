@@ -5,10 +5,12 @@ Feature: Purchase a product
   @done
   Scenario Outline: Add a new user address
     Given a logged in user is on the home page
-    And the user is searching Hummingbird Printed Sweater
-    And the user clicks on Hummingbird Printed Sweater
-    And the user
-    When the user clicks Create new address button
-    And the user fills the address form with "<alias>", "<first_name>", "<last_name>", "<address>", "<city>", "<zip_code>", "<country>"
-    And the user clicks the Save button
-    Then my addresses page should include the new address titled "<alias>"
+    And the user types "<product>" and searches it
+    And the user checks if product is discounted on "<discountedOn>" and clicks on it
+    When the user chooses product values with "<product_count>", "<product_size>"
+    And the user clicks AddToCart and ProceedToCheckout Button
+    And the user makes payment
+    Then the user makes a screenshot of made purchase
+    Examples:
+      | product                     | discountedOn | product_size | product_count |
+      | Hummingbird Printed Sweater | 20%          | M            | 5             |

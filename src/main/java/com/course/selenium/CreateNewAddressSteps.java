@@ -23,6 +23,8 @@ public class CreateNewAddressSteps {
         homePage.clickSingInButton();
         loginPage = new LoginPage(driver);
         loginPage.loginAs("kkkggg@kg.com", "kgkgkgkg");
+        myAccountPage = new MyAccountPage(driver);
+        myAccountPage.clickLogoButton();
     }
 
     @And("the user clicks on Addresses button from the footer")
@@ -37,11 +39,11 @@ public class CreateNewAddressSteps {
         yourAddressesPage.clickOnNewAddressButton();
     }
 
-    @And("the user fills the address form with {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    @And("the user fills the address form with {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
     public void theUserFillsTheAddressFormWith(String alias, String firstName, String lastName, String address, String zipCode,
-                                               String city, String country) {
+                                               String city, String country, String phone) {
         newAddressPage = new NewAddressFormPage(driver);
-        newAddressPage.fillNewAddressForm(alias, firstName, lastName, address, zipCode, city, country);
+        newAddressPage.fillNewAddressForm(alias, firstName, lastName, address, zipCode, city, country, phone);
     }
 
     @And("the user clicks the Save button")

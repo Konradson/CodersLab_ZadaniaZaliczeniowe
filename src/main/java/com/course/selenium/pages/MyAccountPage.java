@@ -15,6 +15,8 @@ public class MyAccountPage {
 
     @FindBy(xpath = "//ul[@class='account-list collapse']/li/a[@title='Addresses']")
     private WebElement addressesButton;
+    @FindBy(css=".logo")
+    private WebElement logoButton;
 
     public MyAccountPage(WebDriver driver) {
         //Init driver
@@ -27,5 +29,9 @@ public class MyAccountPage {
 
     public void clickOnAddresses(){
         addressesButton.click();
+    }
+
+    public void clickLogoButton(){
+        logoButton.click();
     }
 }
