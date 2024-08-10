@@ -11,11 +11,11 @@ import static com.course.selenium.helpers.Helpers.waitForPageLoaded;
 public class LoginPage {
 
     @FindBy(css = "#field-email")
-    WebElement emailInput;
+    private WebElement emailInput;
     @FindBy(css = "#field-password")
-    WebElement passwordInput;
+    private WebElement passwordInput;
     @FindBy(css = "#submit-login")
-    WebElement submitButton;
+    private WebElement submitButton;
 
 
     private final WebDriver driver;

@@ -14,23 +14,23 @@ public class NewAddressFormPage {
     private By locatorToInit = By.cssSelector("#field-alias");
 
     @FindBy(id = "field-alias")
-    WebElement aliasField;
+    private WebElement aliasField;
     @FindBy(id = "field-firstname")
-    WebElement firstNameField;
+    private WebElement firstNameField;
     @FindBy(id = "field-lastname")
-    WebElement lastNameField;
+    private WebElement lastNameField;
     @FindBy(id = "field-address1")
-    WebElement addressField;
+    private WebElement addressField;
     @FindBy(id = "field-city")
-    WebElement cityField;
+    private WebElement cityField;
     @FindBy(id = "field-postcode")
-    WebElement zipCodeField;
+    private WebElement zipCodeField;
     @FindBy(id = "field-id_country")
-    WebElement countryDropDownButton;
+    private WebElement countryDropDownButton;
     @FindBy(id = "field-phone")
-    WebElement phoneField;
+    private WebElement phoneField;
     @FindBy(css = ".form-control-submit")
-    WebElement saveButton;
+    private WebElement saveButton;
 
     public NewAddressFormPage(WebDriver driver) {
         //Init driver
@@ -71,10 +71,10 @@ public class NewAddressFormPage {
         zipCodeField.sendKeys(zip_code);
         cityField.clear();
         cityField.sendKeys(city);
-        phoneField.clear();
-        phoneField.sendKeys(phone);
         countryDropDownButton.click();
         countryDroppedDownElement.click();
+        phoneField.clear();
+        phoneField.sendKeys(phone);
     }
 
     public void clickSave(){

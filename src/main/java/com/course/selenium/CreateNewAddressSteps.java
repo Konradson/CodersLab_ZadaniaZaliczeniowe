@@ -29,8 +29,8 @@ public class CreateNewAddressSteps {
 
     @And("the user clicks on Addresses button from the footer")
     public void theUserClicksOnAddressesButtonFromTheFooter() {
-        myAccountPage = new MyAccountPage(driver);
-        myAccountPage.clickOnAddresses();
+        homePage = new HomePage(driver);
+        homePage.clickOnAddresses();
     }
 
     @When("the user clicks Create new address button")

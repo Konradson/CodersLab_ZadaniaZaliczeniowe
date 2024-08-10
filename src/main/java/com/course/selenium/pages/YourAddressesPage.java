@@ -15,7 +15,7 @@ public class YourAddressesPage {
     private By locatorToInit = By.xpath("//h1[contains(text(), 'Your addresses')]");
 
     @FindBy(xpath =  "//a[@data-link-action='add-address']")
-    WebElement createNewAddressButton;
+    private WebElement createNewAddressButton;
 
     public YourAddressesPage(WebDriver driver) {
         //Init driver

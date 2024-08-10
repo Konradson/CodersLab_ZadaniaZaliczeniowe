@@ -28,7 +28,7 @@ public class PaymentDetailsPage {
     private WebElement payByCheckRadioButton;
     @FindBy(xpath = "//input[@class='ps-shown-by-js' and @value='1']")
     private WebElement agreeTermsCheckBox;
-    @FindBy(css = "#payment-confirmation .ps-shown-by-js")
+    @FindBy(xpath = "//button[@type='submit' and contains(text(), 'Place order')]")
     private WebElement placeOrderButton;
 
     public PaymentDetailsPage(WebDriver driver) {
@@ -73,7 +73,7 @@ public class PaymentDetailsPage {
     public void clickPlaceOrderButton(){
         //Wait for placeOrderButton
         Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(d -> placeOrderButton.isEnabled());
+        wait.until(d -> placeOrderButton.getAttribute("disabled") == null);
         //Click placeOrderButton
         placeOrderButton.click();
     }

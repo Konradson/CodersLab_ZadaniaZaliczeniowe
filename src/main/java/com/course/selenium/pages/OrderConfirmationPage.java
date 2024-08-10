@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.Calendar;
 
 import static com.course.selenium.helpers.Helpers.waitForPageLoaded;
 
@@ -28,9 +30,14 @@ public class OrderConfirmationPage {
     }
 
     public void takeScreenShot(){
+
+        //Get current date to string
+        String currentDate = LocalDate.now().toString();
+
         //Set source and destination of Screenshot Element
         File source = paymentConfirmationElement.getScreenshotAs(OutputType.FILE);
-        File destinationFile = new File("C:\\Test.png");
+        File destinationFile = new File("D:\\OrderConfirmation_" + currentDate + ".png");
+
         //Take Screenshot
         try {
             FileHandler.copy(source, destinationFile);
