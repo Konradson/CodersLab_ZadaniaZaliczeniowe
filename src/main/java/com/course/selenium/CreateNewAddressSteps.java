@@ -57,4 +57,10 @@ public class CreateNewAddressSteps {
         yourAddressesPage = new YourAddressesPage(driver);
         yourAddressesPage.findMyAddress(alias);
     }
+
+    @And("the user deletes newly created address with title {string}")
+    public void theUserDeletesNewlyCreatedAddressWithTitle(String alias) {
+        yourAddressesPage = new YourAddressesPage(driver);
+        yourAddressesPage.deleteAddress(alias);
+    }
 }
