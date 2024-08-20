@@ -11,6 +11,7 @@ Feature: Purchase a product
     And the user clicks AddToCart and ProceedToCheckout Button
     And the user makes payment
     Then the user makes a screenshot of made purchase
+    And payment is on the list with status "Awaiting check payment" and correct price
     Examples:
       | product                     | discountedOn | product_size | product_count |
       | Hummingbird Printed Sweater | 20%          | M            | 5             |

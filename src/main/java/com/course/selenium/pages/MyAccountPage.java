@@ -17,6 +17,8 @@ public class MyAccountPage {
     private WebElement addressesButton;
     @FindBy(css=".logo")
     private WebElement logoButton;
+    @FindBy(id="history-link")
+    private WebElement historyButton;
 
     public MyAccountPage(WebDriver driver) {
         //Init driver
@@ -33,5 +35,9 @@ public class MyAccountPage {
 
     public void clickLogoButton(){
         logoButton.click();
+    }
+
+    public void clickOnHistory(){
+        historyButton.click();
     }
 }

@@ -5,7 +5,9 @@ import com.course.selenium.pages.*;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class PurchaseProductSteps {
 
@@ -16,6 +18,8 @@ public class PurchaseProductSteps {
     CartPage cartPage;
     PaymentDetailsPage paymentDetailsPage;
     OrderConfirmationPage orderConfirmationPage;
+    MyAccountPage myAccountPage;
+    OrderHistoryPage orderHistoryPage;
 
 
     @And("the user types {string} and searches it")
@@ -62,5 +66,30 @@ public class PurchaseProductSteps {
     public void theUserMakesAScreenshotOfMadePurchase() {
         orderConfirmationPage = new OrderConfirmationPage(driver);
         orderConfirmationPage.takeScreenShot();
+        orderConfirmationPage.saveOrderReference();
+    }
+
+    @And("payment is on the list with status {string} and correct price")
+    public void paymentIsOnTheListWithStatusAwaitingCheckPaymentAndCorrectPrice(String statusToCheck) {
+        orderConfirmationPage = new OrderConfirmationPage(driver);
+        orderConfirmationPage.clickOnLoginIcon();
+        myAccountPage = new MyAccountPage(driver);
+        myAccountPage.clickOnHistory();
+
+        orderHistoryPage = new OrderHistoryPage(driver);
+        //Get OrderReference Element (row)
+        WebElement lastPaymentInfoRow = orderHistoryPage.findPaymentInfoRow(BrowserFactory.getOrderReference());
+
+        //Check if paymentInfo Status is equal to desired Status
+        boolean paymentAwaitingBool = orderHistoryPage.checkIfPaymentIsAwaiting(lastPaymentInfoRow, statusToCheck);
+        //Assert message if there is different status
+        Assert.assertTrue("Payment has a different status than - " + statusToCheck,paymentAwaitingBool);
+
+        //Check if Price of paymentInfoRow Element is correct
+        String priceToCheck = BrowserFactory.getOrderPrice();
+        boolean priceCorrect = orderHistoryPage.checkIfPaymentPriceEqualsTo(lastPaymentInfoRow, priceToCheck);
+        //Assert message if price is correct
+        Assert.assertTrue("There are different prices in the payment info row and real price of the order!",
+                priceCorrect);
     }
 }
