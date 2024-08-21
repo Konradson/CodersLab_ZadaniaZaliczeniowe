@@ -48,7 +48,7 @@ Dodatkowe kroki dla chętnych:
 - Wejdź w historię zamówień i detale (najpierw kliknij w użytkownika zalogowanego, później kafelek),
 - sprawdź czy zamówienie znajduje się na liście ze statusem "Awaiting check payment" i kwotą taką samą jak na zamówieniu dwa kroki wcześniej.
 
-
+<br>
 
 ENG: CodersLab_FinalTasks
 --
@@ -75,6 +75,8 @@ Additional steps for those interested:
 
 - Deletes the above address by clicking on "delete",
 - Checks if the address has been deleted.
+
+---
 
 **TASK 2**
 
