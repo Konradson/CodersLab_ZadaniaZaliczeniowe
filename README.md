@@ -48,7 +48,11 @@ Dodatkowe kroki dla chętnych:
 - Wejdź w historię zamówień i detale (najpierw kliknij w użytkownika zalogowanego, później kafelek),
 - sprawdź czy zamówienie znajduje się na liście ze statusem "Awaiting check payment" i kwotą taką samą jak na zamówieniu dwa kroki wcześniej.
 
+
 <br>
+<br>
+<br>
+
 
 ENG: CodersLab_FinalTasks
 --
